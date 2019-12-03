@@ -1,9 +1,9 @@
 pragma solidity ^0.5.12;
 
-contract ipfs_inbox {
+contract inbox {
 
     // Grabs the name of the resources based on address
-    mapping (address => string) ipfs_inbox;
+    mapping (address => string) inbox;
 
     // Events
     event ipfsSent(string _ipfsHash, address _address);
@@ -17,21 +17,21 @@ contract ipfs_inbox {
     }
 
     function sendIPFS(address _address, string memory _ipfsHash)
-        notFull(ipfs_inbox[_address])
+        notFull(inbox[_address])
         public
     {   
-       ipfs_inbox[_address] = _ipfsHash;
+       inbox[_address] = _ipfsHash;
        emit ipfsSent(_ipfsHash, _address);
     }
     
     function checkInbox()
         public
     {
-        string memory ipfs_hash = ipfs_inbox[msg.sender];
+        string memory ipfs_hash = inbox[msg.sender];
         if(bytes(ipfs_hash).length == 0) {
             emit inboxResponse("Empty Inbox");
         } else {
-            ipfs_inbox[msg.sender] = "";
+            inbox[msg.sender] = "";
             emit inboxResponse(ipfs_hash);
         }
     }
