@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import IPFSInboxContract from "./IPFSInbox.json";
+import ipfs_inboxContract from "./ipfs_inbox.json";
 import getWeb3 from "./utils/getWeb3";
 import truffleContract from "truffle-contract";
 import ipfs from './ipfs';
@@ -36,7 +36,7 @@ class App extends Component {
       const accounts = await web3.eth.getAccounts();
 
       // Get the contract instance.
-      const Contract = truffleContract(IPFSInboxContract);
+      const Contract = truffleContract(ipfs_inboxContract);
       Contract.setProvider(web3.currentProvider);
       const instance = await Contract.deployed();
 
