@@ -8,8 +8,8 @@ import com.amazonaws.regions.Regions;
 
 public class CognitoSettings {
     private String userPoolId = "us-east-2_HoMu90HDP";
-    private String clientId = "2cssvjj42i0ubop3qnp7ose6jd";
-    private String clientSecret = "g9i05aou1v1b6r3bek2gomtcviu4csdmdr6oacej8buds1vohf5";
+    private String clientId = "";
+    private String clientSecret = "";
     private Regions cognitoRegion = Regions.US_EAST_2;
 
     private Context context;
